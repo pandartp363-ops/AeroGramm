@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Запасной вариант, если у хостинга нет HTTPS. Лучше включить HTTPS и этот файл не трогать. -->
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">YOUR-HOST</domain>
+    </domain-config>
+</network-security-config>
