@@ -43,12 +43,9 @@ jobs:
 
       - name: Rename app and set package ID
         run: |
-          echo "=== Current applicationId ==="
-          grep -n 'applicationId' TMessagesProj_App/build.gradle || true
+          sed -i 's/defaultConfig.applicationId = APP_PACKAGE/defaultConfig.applicationId = "com.aerogram.app"/' TMessagesProj_App/build.gradle
 
-          sed -i -E 's/^([[:space:]]*applicationId[[:space:]]*=?[[:space:]]*).*/\1"com.aerogram.app"/' TMessagesProj_App/build.gradle
-
-          echo "=== New applicationId ==="
+          echo "=== Verify applicationId ==="
           grep -n 'applicationId' TMessagesProj_App/build.gradle
 
           grep -rl '<string name="AppName">' TMessagesProj/src/main/res/values/strings.xml \
